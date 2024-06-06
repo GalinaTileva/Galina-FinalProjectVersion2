@@ -6,9 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class SettingsPage extends BasePage {
 
-    @FindBy(css = "#repo-title-component > strong > a")
-    private WebElement repoTitle;  //sel ?
-
     @FindBy(css = "#rename-field")
     private WebElement renameInput;
 
@@ -35,6 +32,22 @@ public class SettingsPage extends BasePage {
             return false;
         }
     }
+
+
+
+    @Step("Write down new repository name")
+    public void renameRepo(String newRepo) {
+        renameInput.click();
+        renameInput.clear();
+        renameInput.sendKeys(newRepo);
+        //getCurrentUrl();
+        renameButton.click();
+
+        waitUntilAjaxRequestCompletes();
+        //waitForUrlToChange(currentUrl);
+
+    }
+
 
 
 

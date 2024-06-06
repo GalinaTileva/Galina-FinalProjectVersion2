@@ -57,9 +57,6 @@ public class SelenBaseTest {
         }
     }
 
-
-
-
     @AfterMethod
     public void tearDown(ITestResult result) {
 
@@ -79,6 +76,6 @@ public class SelenBaseTest {
                 e.printStackTrace();
             }
         }
-        DriverFactory.quitDriver();
+       // DriverFactory.quitDriver();
     }
 }

@@ -4,6 +4,11 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.project.utils.drivers.DriverFactory;
+
+import java.time.Duration;
 
 public class RepoPage extends BasePage {
 
@@ -34,6 +39,7 @@ public class RepoPage extends BasePage {
     @FindBy(css = "#settings-tab")
     private WebElement settingsPageLink;
 
+
     @Step("Visibility of 'Repo page' element")
     public Boolean repoPageElementVisible() {
         try {
@@ -45,9 +51,9 @@ public class RepoPage extends BasePage {
 
     @Step("Click 'Settings' button/link")
     public SettingsPage openSettingsPage() {
-        waitForElementToBeClickable(settingsPageLink);
         settingsPageLink.click();
         return new SettingsPage();
     }
+
 
 }
