@@ -1,5 +1,6 @@
 package org.project.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -25,6 +26,17 @@ public class SettingsPage extends BasePage {
 
     @FindBy(xpath = "//*[@id='repo-delete-proceed-button']/span/span")
     private WebElement confirmDeleteButton;   //wait clickable   //sel ?
+
+    @Step("Visibility of 'Settings' page element")
+    public Boolean settingsPageElementVisible() {
+        try {
+            return renameButton.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 
 
 }

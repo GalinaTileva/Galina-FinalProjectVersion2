@@ -8,9 +8,7 @@ import org.project.pages.signup.Header;
 import org.project.utils.CsvReader;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
-
 import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends SelenBaseTest {
@@ -32,7 +30,7 @@ public class LoginTest extends SelenBaseTest {
     public void login(String username, String password) {
         header = new Header();
         loginPage = header.clickSignInButton();
-        mainPage = loginPage.goToMainPage(username, password);
+        mainPage = loginPage.openMainPage(username, password);
 
         assertTrue(mainPage.mainPageElementVisible(), "Main page element is not displayed");
     }

@@ -146,7 +146,7 @@ public class SignUpPage extends BasePage {
     }
 
     @Step("Redirection to verification page")
-    public VerifPage goToVerifPage(String email, String password, String username) throws InterruptedException {
+    public VerifPage openVerifPage(String email, String password, String username) throws InterruptedException {
         setValidEmail(email);
         setValidPassword(password);
         setValidUsername(username);

@@ -47,7 +47,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Redirection to Main page")
-    public MainPage goToMainPage (String username, String password) {
+    public MainPage openMainPage (String username, String password) {
         userInput.click();
         userInput.sendKeys(username);
         passwordInput.click();
@@ -55,12 +55,5 @@ public class LoginPage extends BasePage {
         loginButton.click();
         return new MainPage();
     }
-
-
-
-
-
-
-
 
 }

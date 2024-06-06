@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends BasePage {
-    private LoginPage loginPage;
-    private MainPage mainPage;
 
     @FindBy(css = "[aria-label='Start a new repository']")
     private WebElement startRepoSection;
@@ -41,6 +39,22 @@ public class MainPage extends BasePage {
         }
     }
 
+    @Step("Name new repository")
+    public void nameRepo(String repoName) {
+        repoNameInput.click();
+        repoNameInput.sendKeys(repoName);
+    }
 
+    @Step("Click create new repository button")
+    public void clickCreateRepo() {
+        createRepoButton.click();
+    }
+
+    @Step("Redirect to repository page")
+    public RepoPage openRepoPage(String repoName) {
+        nameRepo(repoName);
+        clickCreateRepo();
+        return new RepoPage();
+    }
 
 }
